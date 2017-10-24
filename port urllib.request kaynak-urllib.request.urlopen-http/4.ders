@@ -1,0 +1,17 @@
+import bs4 as bs
+import urllib.request
+kaynak=urllib.request.urlopen('http://ybs.deu.edu.tr').read()
+sayfa=bs.BeautifulSoup(kaynak,'lxml')
+##print(sayfa.findAll('p'))
+##for paragraf in sayfa.findAll('p'):
+##    print(paragraf.string)
+##for url in sayfa.finAll('a'):
+##    print(url)
+menu=sayfa.nav
+print(menu)
+for url in menu.findAll('a'):
+    print(url.get('href'))
+    
+    
+
+
