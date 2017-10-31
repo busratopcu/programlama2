@@ -1,0 +1,9 @@
+import bs4 as bs
+import urllib.request
+
+kaynak=urllib.request.urlopen('https://www.morcati.org.tr/tr/yayinlarimiz/makaleler/100-mor-cati-ve-aile-icinde-kadina-yonelik-siddet').read()
+sayfa=bs.BeautifulSoup(kaynak,'lxml')
+
+for paragraf in sayfa.findAll('p'):
+    print(paragraf.string)
+
